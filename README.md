@@ -1,6 +1,6 @@
 # Apache Traffic Control - Up and Running
 
-###  Introduction
+* Introduction
 
   * History
 
@@ -12,96 +12,94 @@
 
   * [Apache TLP in June 2018](https://blogs.apache.org/foundation/entry/the-apache-software-foundation-announces36)
 
-### Traffic Control Overview
+* Traffic Control Overview
 
   * Overview Diagram
 
   * Why Apache Traffic Control in Docker?
 
-  * Component Descriptions
+* Component Descriptions
 
-     + Traffic Portal
+  * Traffic Portal
 
-     + Traffic Ops
+  * Traffic Ops
 
-       - Overview
+    * Overview
 
-       - Development Efforts
+    * Development Efforts
 
+    * Postgres Database
 
-       - Postgres Database
+    * Log files
 
-       - Log files
+    * What is a Delivery Service?
 
-       - What is a Delivery Service?
+    * How does the CDN URL align to the DeliveryService?
 
-       - How does the CDN URL align to the DeliveryService?
+  * Traffic Ops Enroller Microservice
 
-     + Traffic Ops Enroller Microservice
+  * Traffic Router
 
-     + Traffic Router
+    * Overview
 
-       - Overview
+    * Routing Types (DNS, HTTP)
 
-       - Routing Types (DNS, HTTP)
+    * Supports - DNS Authorative, SSL, DNSSEC
 
-       - Supports - DNS Authorative, SSL, DNSSEC
-         
+    * Log files
 
-       - Log files
+  * Traffic Monitor
 
-     + Traffic Monitor
+    * Overview
 
-       - Overview
+    * Health Protocol
 
-       - Health Protocol
+    * Log files
 
-       - Log files
+  * Apache Traffic Server
 
-     + Apache Traffic Server
+    * Overview
 
-       - Overview
+    * HTTP Headers (`expires`,  `location`, more?)
 
-       - HTTP Headers (`expires`,  `location`, more?)
+    * Mids/Edges (Diagram to show Onion Example)
 
-       - Mids/Edges (Diagram to show Onion Example)
+    * Log files
 
-       - Log files
+  * ORT
 
-     + ORT
+    * Log files
 
-       - Log files
+    * Config File Delivery
 
-       - Config File Delivery
+  * Traffic Stats
 
-     + Traffic Stats
+  * Overview of a Traffic Control CDN Architecture
 
-     + Overview of a Traffic Control CDN Architecture
+    * Main Traffic Control Components run in OpenStack
 
-       - Main Traffic Control Components run in OpenStack
+    * Point out the Mids/Edges are on HW for performance
 
-       - Point out the Mids/Edges are on HW for performance
+    * Mids/Edges (Diagram to show Onion Example)
 
-       - Mids/Edges (Diagram to show Onion Example)
+  * Demo Origin
 
-     + Demo Origin
+    * TC Logo
 
-       - TC Logo
+    * Feigner (Big Buck Bunny.mp4)
 
-       - Feigner (Big Buck Bunny.mp4)
+  * Grove?
 
-     + Grove?
+  * CDN Analytics
 
+    * Real-time Stats
 
-    + CDN Analytics
-      + Real-time Stats
-      + Grafana/InfluxDB
-        - (Mountain Chart Screenshot)
+    * Grafana/InfluxDB
+      * (Mountain Chart Screenshot)
 
-      + Logging Stats
-        - Apache Kafka/Filebeat
+    * Logging Stats
+      * Apache Kafka/Filebeat
 
-     
 Custom Slides:
 
 1. [Apache Traffic Control Website](https://trafficcontrol.apache.org/)
