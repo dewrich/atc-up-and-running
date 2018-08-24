@@ -17,16 +17,24 @@
   * Overview Diagram
 
   * Why Apache Traffic Control in Docker?
+    * Development support
+    * Continuous Integration testing
+    * Gentle introduction for newcomers
 
 * Component Descriptions
 
   * Traffic Portal
+    * UI front end for Traffic Ops
 
   * Traffic Ops
-
     * Overview
+      * Underlying Postgres DB
+      * API for CDN configuration (servers, deliveryservices, etc)
 
     * Development Efforts
+      * Originally delevoped in Perl with Mojolicious web framework
+      * Currently being rewritten in Go in stages
+      * Reverse proxy for unimplemented API
 
     * Postgres Database
 
@@ -37,6 +45,7 @@
     * How does the CDN URL align to the DeliveryService?
 
   * Traffic Ops Enroller Microservice
+    * Provides automated method to gather info from docker and register a container as a server in Traffic Ops
 
   * Traffic Router
 
@@ -102,11 +111,11 @@
 
 Custom Slides:
 
-1. [Apache Traffic Control Website](https://trafficcontrol.apache.org/)
+- [Apache Traffic Control - Up and Running](#apache-traffic-control---up-and-running)
 
-1. Architecture Diagram (Onion Diagram)
+2. Architecture Diagram (Onion Diagram)
 
-1. Mountain Chart Screenshot
+3. Mountain Chart Screenshot
 
 
 
