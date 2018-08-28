@@ -5,18 +5,137 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="images/favicon.png">
     <style>
+
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
       @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
-      body { font-family: 'Droid Serif' }
-      .remark-slide-container { background-color: black; }
-      .remark-slide-content { border: none; color: white; background-color: black; }
+      body {
+        font-family: 'Droid Serif';
+      }
       h1, h2, h3 {
         font-family: 'Yanone Kaffeesatz';
-        font-weight: normal;
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-fading {
+        z-index: 9;
+      }
+      .remark-slide-container { transition: opacity 0.5s ease-out;opacity: 0;}
+      .remark-visible {transition: opacity 0.5s ease-out;opacity: 1;}
+
+      .remark-slide-container { background-color: black; }
+      .remark-slide-number { color: white; }
+      .remark-slide { width: 100%; }
+      .remark-slide-content {background-color: black;  border: none; width: 100%; }
+      .remark-slide-content img { margin-left: -75px; width: 120%; }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+      .left-column h2:last-of-type, .left-column h3:last-child {
+          color: white;
+          /* color: #000; */
+      }
+      .right-column {
+          color: white;
+          /* color: #000; */
+      }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+      .left {
+        text-align: -100px; 
+      }
     </style>
   </head>
   <body>
@@ -28,23 +147,25 @@ class: center, middle
   Up and Running
 
 ---
-
-# Agenda
-
-1. Introduction
-2. Deep-dive
-3. ...
-
+.left-column[
+  ## Introduction
+]
+.right-column[
 ![Train](https://hdqwalls.com/download/train-track-wide-540x960.jpg)
+]
 ---
+.left-column[
+  ## CDN Stats
+]
 
-# CDN Stats
-
+.right-column[
 * 16 EB delivered
 
 * 30 PB/day
-Daily total peak ~ 4.5 Tbps
-Highest ever peak ~ 5.26 Tbps
+
+   Daily total peak ~ 4.5 Tbps
+
+   Highest ever peak ~ 5.26 Tbps
 
 * 70 Billion transactions a day
 
@@ -53,12 +174,99 @@ Highest ever peak ~ 5.26 Tbps
 * 2,000 servers; > 1,700 are ATS caches
 
 * 800 Delivery Services
+]
+---
+.left-column[
+  ## CDN Stats
+  ## Slide2
+]
 
+.right-column[
+  ## Slide2
+]
+---
+.left-column[
+  ## CDN Stats
+  ## Slide2
+  ## Slide3
+]
 
+.right-column[
+  ## Slide3
+]
+---
+.left-column[
+  ## CDN Stats
+  ## Slide2
+  ## Slide3
+  ## Slide4
+]
+
+.right-column[
+  ## Slide4
+]
+---
+.left-column[
+  ## CDN Stats
+  ## Slide2
+  ## Slide3
+  ## Slide4
+  ## Slide5
+]
+
+.right-column[
+  ## Slide5
+]
+---
+.left-column[
+  ## CDN Stats
+  ## Slide2
+  ## Slide3
+  ## Slide4
+  ## Slide5
+  ## Slide6
+]
+
+.right-column[
+  ## Slide6
+]
+---
+layout: false
+.left-column[
+  ## Slide7
+]
+
+.right-column[
+  ## Slide7
+]
+---
+.left-column[
+  ## Slide7
+  ## Slide8
+]
+
+.right-column[
+  ## Slide8
+]
+---
+.left-column[
+  ## Slide7
+  ## Slide8
+  ## Slide9
+]
+
+.right-column[
+  ## Slide9
+]
+---
+   .left[![CDN Stats](images/daily_bw_summary.png)]
+---
+   .left[![CDN Stats](images/comcast_cdn_growth.png)]
 ---
 
     </textarea>
-    <script src="remark-latest.min.js">
+    <script src="js/remark-latest.min.js">
+    <script src="js/remark.language.js">
     </script>
     <script>
       var slideshow = remark.create();
