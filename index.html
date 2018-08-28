@@ -21,20 +21,28 @@
       .remark-fading {
         z-index: 9;
       }
-      .remark-slide-container { transition: opacity 0.5s ease-out;opacity: 0;}
+      .remark-slide-container { background-color: black; transition: opacity 0.5s ease-out;opacity: 0;}
       .remark-visible {transition: opacity 0.5s ease-out;opacity: 1;}
 
-      .remark-slide-container { background-color: black; }
       .remark-slide-number { color: white; }
-      .remark-slide { width: 100%; }
-      .remark-slide-content {background-color: black;  border: none; width: 100%; }
+      .remark-slide {  height: 600px; }
+      .remark-slide-content { background-color: black;  border: none; }
       .remark-slide-content img { margin-left: -75px; width: 120%; }
       .remark-slide-content h1 { font-size: 3em; }
       .remark-slide-content h2 { font-size: 2em; }
       .remark-slide-content h3 { font-size: 1.6em; }
+      .remark-slides-area { height: 90%; }
       .footnote {
         position: absolute;
         bottom: 3em;
+      }
+      .header {
+        padding: 5px;
+        background-color: black;
+      }
+      .header img {
+        width: 600px;
+        height: 160px;
       }
       li p { line-height: 1.25em; }
       .red { color: #fa0000; }
@@ -139,6 +147,9 @@
     </style>
   </head>
   <body>
+    <div class="header">
+        <img src="images/tc-logo-small.png"/>
+    </div>
     <textarea id="source">
 
 class: center, middle
@@ -148,10 +159,20 @@ class: center, middle
 
 ---
 .left-column[
-  ## Introduction
+  ## What is a CDN?
 ]
 .right-column[
-![Train](https://hdqwalls.com/download/train-track-wide-540x960.jpg)
+*  A Content Delivery Network (CDN) is a network of caching proxy servers that are geographically located to optimize content delivery to users for high availability and performance.
+]
+---
+.left-column[
+  ## What is a CDN?
+  ## Introducing Traffic Control
+]
+.right-column[
+* Traffic Control is a caching server control plane application which is used to aggregate caching servers into a Content Delivery Network (CDN). 
+
+* The CDN caching software chosen for Traffic Control is Apache Traffic Server (ATS).
 ]
 ---
 .left-column[
