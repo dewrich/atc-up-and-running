@@ -1,0 +1,271 @@
+body {
+  font-family: 'Droid Serif';
+}
+
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: 400;
+  margin-bottom: 0;
+
+}
+h4 a {
+ color: #F28721;
+}
+
+.remark-fading {
+  z-index: 9;
+
+}
+.remark-slide-scaler {
+  width: none;
+  height: none;
+  transform: none;
+  left: none;
+  border: none;
+  	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none; 
+  background-color: black;
+  -webkit-transform: none;
+}
+
+
+.remark-slide-container {
+  background-color: black;
+  transition: opacity 0.5s ease-out;
+  opacity: 0;
+  transform: none;
+}
+
+.remark-visible {
+  transition: opacity 0.5s ease-out;
+  opacity: 1;
+}
+
+.remark-slide {
+}
+
+.remark-slide-content {
+  background-color: black;
+  border: none;
+}
+
+.remark-slide-content img {
+  margin-left: -10%;
+  margin-top: -10px;
+  width: 120%;
+}
+
+.remark-slide-content h1 {
+  color: white;
+  font-size: 3em;
+  text-align: center;
+}
+
+.remark-slide-content h2 {
+  font-size: 2em;
+}
+
+.remark-slide-content h3 {
+  color: white;
+  font-size: 1.6em;
+}
+
+.remark-slide-content h4 {
+  color: white;
+  font-size: 1.3em;
+}
+
+.remark-slide-content p {
+  color: white;
+  font-size: 1.0em;
+}
+
+.remark-slides-area {
+  height: 90%;
+}
+
+.remark-slide-number {
+  color: white;
+  float: left;
+  top: 85%;
+  left: 90%;
+}
+
+.header {
+  padding: 5px;
+  background-color: black;
+}
+
+.header img {
+  width: 600px;
+  height: 160px;
+}
+
+li p {
+  line-height: 1.50em;
+}
+
+ul li {
+  font-size: 1.2em;
+}
+
+
+.red {
+  color: #fa0000;
+}
+
+.large {
+  font-size: 2em;
+}
+
+a, a > code {
+  color: #F28721;
+  text-decoration: none;
+}
+
+code {
+  background: #e7e8e2;
+  border-radius: 5px;
+}
+
+.remark-code, .remark-inline-code {
+  font-family: 'Ubuntu Mono';
+  color: black;
+  padding: 2px;
+}
+
+.remark-code-line-highlighted     {
+  background-color: #373832;
+}
+
+.pull-left {
+  float: left;
+  width: 47%;
+}
+
+.pull-right {
+  float: right;
+  width: 47%;
+}
+
+.pull-right ~ p {
+  clear: both;
+}
+
+#slideshow .slide .content code {
+  font-size: 0.8em;
+}
+
+#slideshow .slide .content pre code {
+  font-size: 0.9em;
+  padding: 15px;
+}
+
+.inverse {
+  background: #272822;
+  color: #777872;
+  text-shadow: 0 0 20px #333;
+}
+
+
+.inverse h1, .inverse h2 {
+  color: #f3f3f3;
+  line-height: 0.8em;
+}
+
+
+/* Slide-specific styling */
+#slide-inverse .footnote {
+  bottom: 12px;
+  left: 20px;
+}
+
+#slide-how .slides {
+  font-size: 0.9em;
+  position: absolute;
+  top:  151px;
+  right: 140px;
+}
+
+#slide-how .slides h3 {
+  margin-top: 0.2em;
+}
+
+#slide-how .slides .first, #slide-how .slides .second {
+  padding: 1px 20px;
+  height: 90px;
+  width: 120px;
+  -moz-box-shadow: 0 0 10px #777;
+  -webkit-box-shadow: 0 0 10px #777;
+  box-shadow: 0 0 10px #777;
+}
+
+#slide-how .slides .first {
+  background: #fff;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  z-index: 1;
+}
+
+#slide-how .slides .second {
+  position: relative;
+  background: #fff;
+  z-index: 0;
+}
+
+
+/* Two-column layout */
+.left-column {
+  color: #777;
+  width: 20%;
+  height: 92%;
+  float: left;
+  margin-top: 10px;
+  margin-left: -15px;
+  font-size: .8em;
+}
+
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: white;
+  /* color: #000;
+   */
+}
+
+.right-column {
+  color: white;
+}
+
+
+.right-column ul li p a {
+ color: #F28721;
+}
+
+
+.right-column p {
+  margin-top: 40px;
+}
+
+.right-column {
+  margin-left: 25px;
+  width: 75%;
+  float: left;
+  font-size: 1.2em;
+}
+
+.left {
+  text-align: -100px;
+}
+
+.middle {
+  display: inline-block;
+  /* float:left;  remove */
+  margin: 100px 0 0 0;
+}
+
+.center {
+  text-align: center;
+  display: inline-block;
+}
+

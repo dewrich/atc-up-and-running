@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Apache Traffic Control: Up and Running</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link href="css/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="header">
+        <img src="images/tc-logo-small.png"/>
+    </div>
+    <textarea id="source">
+
+#.center[Apache Traffic Control]
+###.center[Up and Running]
+
+####.center[.middle[Dewayne Richardson <br/> [dewrich@apache.org](mailto:dewrich@apache.org)]]
+####.center[Dan Kirkwood  <br/>[dangogh@apache.org](mailto:dangogh@apache.org)]
+
+---
+
+.left-column[
+  ## What is a CDN?
+]
+.right-column[
+A `Content Delivery Network (CDN)` is a network of caching proxy servers that are geographically located to optimize content delivery to users for high availability and performance.
+]
+
+---
+
+.left-column[
+  ## What is a CDN?
+  ## Why build <br/>a CDN?
+]
+.right-column[
+Prediction that a tsunami of bits were coming to Comcast platforms and how do we scale that problem?
+]
+
+---
+
+.left-column[
+  ## What is a CDN?
+  ## Why build <br/>a CDN?
+  ## What is Traffic Control?
+]
+.right-column[
+`Traffic Control` is a caching server control plane suite of service-based components which are used to aggregate caching servers into a Content Delivery Network (CDN). 
+
+The CDN caching proxies for Traffic Control are:
+- [Apache Traffic Server (ATS)](http://trafficserver.apache.org) - software is a fast, scalable and extensible HTTP/1.1 and HTTP/2.0 compliant caching proxy server.
+
+- [Grove](https://github.com/apache/trafficcontrol/tree/master/grove) - a Traffic Control Caching Server written in Go, implementing RFC 7234
+]
+
+---
+.left-column[
+  ## Traffic Control Story
+]
+
+.right-column[
+* 01/2012: Work starts in Comcast
+
+* 10/2012: Comcast Production Deployment
+
+* 04/2015: Open Sourced! (github.com/Comcast/traffic_control)
+
+* 12/2015: Four Confirmed Installs
+
+* 01/2016: ~5 External Contributors
+
+* 02/2016: Cisco OMD Announcement
+
+]
+---
+
+.left-column[
+  ## Traffic Control Story
+]
+.right-column[
+
+* 06/2016: Apache Incubator Proposal
+
+* 02/2017: 1st Apache Incubator Release
+
+* 06/2018: [ATC becomes a TLP!](https://blogs.apache.org/foundation/entry/the-apache-software-foundation-announces36)
+
+]
+---
+
+.left-column[
+  ## Traffic Control Story
+  ## Traffic Control Community
+(as of Sept 5, 2018)
+
+]
+.right-column[
+
+* [Github Project](https://github.com/apache/trafficcontrol)
+
+* Latest Stable Release 2.2
+
+* Latest Dev Release 3.0
+
+* 19 Committers representing 7 different companies
+
+* 71 contributors
+
+* 9,296 commits
+
+* 2783 Pull Requests
+
+* 5 releases since joining the incubator
+]
+
+---
+
+.left-column[
+  ## Goals
+]
+
+.right-column[
+* Everything in the CDN is Open Source 
+ <br/>(and appropriately licensed)
+
+* Build on existing Open Source cache software
+
+* Use COTS hardware and Cloud
+
+* Standards compliant
+
+* All customer facing components are IPv6 and IPv4
+
+]
+
+---
+
+.left-column[
+  ## Goals
+]
+
+.right-column[
+
+* Horizontally scalable
+
+* Loosely coupled components, stateless
+
+* 100% availability, handle component failure gracefully
+
+* Maintenance, beta testing are part of normal life
+]
+
+---
+M-R-D-A-D
+
+.left-column[
+  ## Goals
+  ## Key Features
+]
+.right-column[
+
+
+* Anonymous Blocking
+
+* Delivery Service Steering
+
+* Geo-based Delivery Service Steering
+
+* DNSSEC
+
+* Multi-tenancy
+
+* Multi Site Origin
+
+* Regional Geo-blocking (RGB)
+]
+
+---
+
+.left-column[
+### Comcast's CDN Stats
+]
+.right-column[
+
+* Billion of transactions at the edge per day
+
+* PB of cache storage
+
+* Petabytes/day
+
+* Exabytes delivered
+]
+
+---
+
+###.center[Traffic Control Overview]
+.left[![CDN Stats](images/traffic_control_overview_3.png)]
+
+---
+#.center[.middle[Traffic Control <br/>Components]]
+???
+Some note.
+---
+
+.left-column[
+### `Traffic Operations:`
+#### Config Management
+]
+.right-column[
+
+### Overview
+
+* Written in Perl/Mojolicious framework which includes UI/API
+
+### Highlights
+
+* Delivery Service Configuration 
+
+* Original configuration management UI
+
+* Application for the management of *all* servers in the CDN
+
+* Multi-tenancy
+
+]
+
+---
+
+.left-column[
+### `Traffic Operations:`
+#### Config Management
+]
+.right-column[
+
+### Highlights
+
+* Manages Content Routing information for the CDN
+
+* The UI and API's talk to a PostgreSQL 9.x database
+
+* Exposes a RESTful API for CRUD interaction by Traffic Portal and other tools
+
+* API is currently being rewritten in Go and the UI is deprecated
+]
+
+---
+.left-column[
+  ## What is a `Delivery Service`?
+]
+.right-column[
+A group of settings and options to optimize content delivery for each customer on the CDN.
+]
+
+---
+
+.left-column[
+  ## What is a `Delivery Service`?
+  ## What are `Parameters`?
+]
+.right-column[
+* Configuration settings that are applied to any ATC component.
+]
+
+---
+.left-column[
+  ## What is a `Delivery Service`?
+  ## What are `Parameters`?
+  ## What are `Profiles`?
+]
+.right-column[
+* Parameters that are bundled into groups
+]
+
+---
+.left-column[
+  ## What is a `Delivery Service`?
+  ## What are `Parameters`?
+  ## What are `Profiles`?
+  ## What is a `Cache Group`?
+]
+.right-column[
+* A collection of caching servers by region
+]
+
+---
+#.center[.middle[Demo <br/> Docker Container <br/> for Traffic Ops]]
+???
+Point out Docker being used for Introduction and Training to Traffic Control
+###.center[.middle[Dan Kirkwood]]
+
+---
+
+.left-column[
+### `Traffic Portal:`
+#### Config Management
+]
+.right-column[
+
+### Overview 
+* AngularJS 1.x client served from a Node.js webserver designed to use the Traffic Ops API.  
+
+### Highlights
+
+* CDN Monitoring
+
+* CDN Administration
+
+* Delivery Service Configuration
+
+]
+
+---
+
+.left-column[
+### `Traffic Portal:`
+#### Config Management
+]
+.right-column[
+
+### Highlights
+
+* Cache Maintenance
+
+* Features are now 100% feature parity from the deprecated Traffic Ops UI
+
+* Purge (force revalidation)
+]
+
+---
+
+#.center[.middle[Demo <br/> Docker Container <br/> for Traffic Portal]]
+###.center[.middle[Dan Kirkwood]]
+
+---
+
+.left-column[
+### Operational Readiness Test (`ORT`):
+#### Config File Delivery
+]
+.right-column[
+
+### Overview
+*  A config delivery script run as a cron job
+
+### Highlights
+
+* Sets up Apache Traffic Server based upon profile/parameters
+
+* Queries Traffic Ops API for config files by hostname
+
+* Delivers the config files for the caching server
+
+]
+
+---
+
+.left-column[
+### `Traffic Monitor:`
+#### Health Protocol
+]
+.right-column[
+
+### Overview
+* Go service for monitoring caches using the Health Protocol that serves as a side car for Traffic Router
+
+### Highlights
+
+* Monitors all caches (over HTTP) for health 
+  * System
+  * Application
+
+* Decider of health for edge caches and delivery services
+]
+
+---
+
+#.center[.middle[Demo <br/> Docker Container <br/> for Traffic Monitor]]
+
+---
+
+.left-column[
+  ## What is a `Consistent Hash`?
+]
+
+.right-column[
+* A ring which it then uses to make sure that requests are routed to a target based on the configured weights. This consistent hash ring is separate from the consistent hash ring used in cache selection.
+]
+
+---
+
+.left-column[
+### `Traffic Router:`
+#### Content Routing
+]
+
+#.center[.middle[Demo <br/> Docker Container <br/> for Traffic Monitor]]
+
+---
+
+.left-column[
+  ## What is a `Consistent Hash`?
+]
+
+.right-column[
+* A ring which it then uses to make sure that requests are routed to a target based on the configured weights. This consistent hash ring is separate from the consistent hash ring used in cache selection.
+]
+
+---
+
+
+.right-column[
+
+### Overview
+* Java Tomcat application for dispatching client requests
+
+### Highlights
+
+
+* DNS authorative for CDN domain
+  * DNSSEC
+  * Short TTLs based on health (DNS DS)
+
+* Routes to the closest available cache using HTTP or DNS using IP address Geo location (Maxmind)
+
+]
+
+---
+
+.left-column[
+### `Traffic Router:`
+#### Content Routing
+]
+.right-column[
+
+### Highlights
+
+* A `consistent hash` keeps routing requests for the same content to route to the same cache in a cache group
+  by region (based upon either hostname or path (URI))
+
+* Geo limiting
+
+* Add headers (CORS)
+
+* Federations
+
+
+]
+
+---
+
+.left-column[
+### `Traffic Router:`
+#### Content Routing
+]
+.right-column[
+
+### Highlights
+
+* Deep Caching
+
+* Scales horizontally
+
+* Stateless
+
+]
+
+---
+###.center[Routing Example]
+.left[![CDN Stats](images/traffic_router_routing.png)]
+---
+###.center[Routing Distance Example]
+.left[![CDN Stats](images/traffic_router_routing_distance.png)]
+---
+#.center[.middle[Demo <br/> Docker Container <br/> for Traffic Router]]
+---
+
+.left-column[
+### `Traffic Stats:`
+#### Analytics
+]
+.right-column[
+
+### Overview
+* Go service
+
+### Highlights
+
+* Acquires and stores statistics about the CDNs managed by Traffic Control
+
+* Mines metrics from Traffic Monitor's APIs and stores them into InfluxDB
+
+* Grafana visualization
+
+]
+
+---
+
+.left-column[
+### `Traffic Vault:`
+#### SSL Keys
+]
+.right-column[
+
+### Overview
+* Riak Service
+
+### Highlights
+
+* Storage of SSL keys for Traffic Router's DNSSEC
+
+* Only used for HTTPS delivery services
+
+]
+
+---
+
+
+.left-column[
+### Future Development
+]
+.right-column[
+
+* Self Service for tenants
+
+* Logging analytics
+
+* Improved documentation
+
+* URI Signing (RFC draft)
+
+* Additional caching software support (Nginx and others)
+
+* CDN in a Box using Docker
+
+]
+
+---
+
+.left-column[
+### Future Development
+]
+.right-column[
+
+* HTTP/2 - push content vs pull
+
+* QUIC - (reliable UDP)
+
+* DNSSEC NSEC3 (NSEC1++)
+
+* Pattern Based Consistent Hashing
+
+]
+
+---
+.left-column[
+### Thank you
+]
+.right-column[
+* Jeff Bevill
+* Brennen Fieck
+* Rob Butts
+]
+---
+### Traffic Control Resources
+
+* These slides <br/> http://bit.ly/atc-up-and-running
+
+* These slides in pdf <br/>  http://bit.ly/atc-up-and-running-pdf
+
+* Traffic Control Website <br/> https://trafficcontrol.apache.org
+
+* Traffic Control Releases <br/> https://trafficcontrol.apache.org/releases
+
+* Apache Traffic Server <br/> http://trafficserver.apache.org
+
+---
+###.center[.middle[THE END]]
+    </textarea>
+    <script src="js/remark-latest.min.js">
+    <script src="js/remark.language.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
