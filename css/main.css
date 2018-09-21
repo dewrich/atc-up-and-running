@@ -264,6 +264,13 @@ code {
   margin: 100px 0 0 0;
 }
 
+.bottom {
+  margin-top: 300px;
+  margin-left: 170px;
+  float: left;
+}
+
+
 .center {
   text-align: center;
   display: inline-block;
