@@ -65,14 +65,20 @@ Prediction that a tsunami of bits were coming to Comcast platforms and how do we
 
 * 10/2012: Comcast Production Deployment
 
-...
+* ...
 
 * 02/2017: 1st Apache Incubator Release
 
+]
+---
+.left-column[
+  ## Traffic Control Story
+]
 
-* 06/2018: [ATC becomes a TLP!](https://blogs.apache.org/foundation/entry/the-apache-software-foundation-announces36)
+.right-column[
 
-* 20 Committers representing 7 different companies
+* ####May 16, 2018: ATC becomes a TLP!
+
 ]
 ---
 
@@ -83,6 +89,8 @@ Prediction that a tsunami of bits were coming to Comcast platforms and how do we
 
 ]
 .right-column[
+
+* 20 Committers representing 7 different companies
 
 * [Github Project](https://github.com/apache/trafficcontrol)
 
@@ -129,25 +137,32 @@ Prediction that a tsunami of bits were coming to Comcast platforms and how do we
 ]
 .right-column[
 
-* Multiple Terabits delivered per second
+* Terabits delivered per second
 
-* Multiple Petabits delivered per day
+* Petabits delivered per day
 
 * Billions of transactions at the edge per day
 
-* Multiple Petabytes of cache storage
+* Petabytes of cache storage
 
-* Multiple Exabytes total delivered
-  * 1^18 or
-  * 1,000,000,000,000,000,000
+]
+
+---
+.left-column[
+### Comcast's CDN Stats
+]
+
+.right-column[
+* ### Exabytes total delivered
+* ### 10^18 or 1,000,000,000,000,000,000
 ]
 
 ---
 #.center[.middle[Traffic Control <br/>Components]]
 ---
 ##.center[.middle[`Traffic Operations`]]
-####.center[Config Management]
-####.center[Administration UI/API(s) for operations to control the CDN]
+###.center[Config Management]
+###.center[Administration UI/API(s) for operations to control the CDN]
 
 ---
 
@@ -165,7 +180,7 @@ A group of settings and options to optimize content delivery for each customer o
   ## What are `Parameters`?
 ]
 .right-column[
-* Configuration settings that are applied to any ATC component.
+Configuration settings that are applied to any ATC component.
 ]
 
 ---
@@ -176,7 +191,7 @@ A group of settings and options to optimize content delivery for each customer o
   ## What are `Profiles`?
 ]
 .right-column[
-* Parameters that are bundled into groups
+Parameters that are bundled into groups
 ]
 
 ---
@@ -185,41 +200,40 @@ A group of settings and options to optimize content delivery for each customer o
 
 ---
 
-#.center[.middle[Demo <br/> Docker Container <br/> for Traffic Ops]]
+#.center[.middle[Demo <br/> Traffic Ops]]
 ???
 Point out Docker being used for Introduction and Training to Traffic Control
 ###.center[.middle[Dan Kirkwood]]
 
 ---
 
-###.center[.middle[`Traffic Portal`]]
-####.center[Config Management Improved]
+##.center[.middle[`Traffic Portal`]]
+###.center[Config Management Improved]
 
 ---
 
 .left[![Docker CIAB2](images/docker/traffic_control_2.png)]
 ---
 
-#.center[.middle[Demo <br/> Docker Container <br/> for Traffic Portal]]
+#.center[.middle[Demo <br/> Traffic Portal]]
 ###.center[.middle[Dan Kirkwood]]
 
 ---
 
 
-###.center[.middle[Operational Readiness Test (`ORT`)]]
-####.center[Config File Delivery]
-
-####.center[Scheduled script for polling Traffic Ops APIs]
-
----
-
-###.center[.middle[`Traffic Monitor`]]
-####.center[Health Protocol]
-
-####.center[Decider of health for edge caches and delivery services]
+##.center[.middle[`Operational Readiness Test (ORT)`]]
+###.center[Config File Delivery]
+###.center[Scheduled script for polling Traffic Ops APIs]
 
 ---
-#.center[.middle[Demo <br/> Docker Container <br/> for Traffic Monitor]]
+
+##.center[.middle[`Traffic Monitor`]]
+###.center[Health Protocol]
+
+###.center[Decider of health for edge caches and delivery services]
+
+---
+#.center[.middle[Demo <br/>Traffic Monitor]]
 ---
 
 .left-column[
@@ -227,15 +241,14 @@ Point out Docker being used for Introduction and Training to Traffic Control
 ]
 
 .right-column[
-* A ring which it then uses to make sure that requests are routed to a target based on the configured weights. <br/> <br/> This consistent hash ring is separate from the consistent hash ring used in cache selection. <br/><br/>-Daniel Lewin and F. Thomas Leighton
+A ring which it then uses to make sure that requests are routed to a target based on the configured weights. <br/> <br/>Authors Daniel Lewin and F. Thomas Leighton
 ]
 
 ---
 
-
-###.center[.middle[`Traffic Router`]]
-####.center[Content Routing]
-####.center[Client requests dispatcher]
+##.center[.middle[`Traffic Router`]]
+###.center[Content Routing]
+###.center[Client requests dispatcher]
 
 ---
 .left[![CDN Stats](images/traffic_router_routing.png)]
@@ -256,6 +269,8 @@ Point out Docker being used for Introduction and Training to Traffic Control
 ---
 .left[![Traffic Router Interaction](images/overview/traffic_router/dns/interaction1.png)]
 ---
+.left[![Traffic Router Interaction](images/overview/traffic_router/http/interaction4.png)]
+---
 .left[![Traffic Router Interaction](images/overview/traffic_router_monitor_polling.png)]
 ---
 .left[![ORT Polling](images/overview/ort_polling.png)]
@@ -265,16 +280,16 @@ Point out Docker being used for Introduction and Training to Traffic Control
 
 ---
 
-#.center[.middle[Demo <br/> Docker Container <br/> for Traffic Router]]
+#.center[.middle[Demo <br/>Traffic Router]]
 ---
 
-###.center[.middle[`Traffic Stats`]]
-####.center[Analytics]
-####.center[Acquires and stores statistics about the CDNs managed by<br/> Traffic Control]
+##.center[.middle[`Traffic Stats`]]
+###.center[Analytics]
+###.center[Acquires and stores statistics about the CDNs]
 
 ---
-###.center[.middle[`Traffic Vault`]]
-####.center[SSL Keys]
+##.center[.middle[`Traffic Vault`]]
+###.center[SSL Keys]
 
 ####.center[Storage of SSL keys for Traffic Router's DNSSEC]
 
@@ -283,7 +298,6 @@ Point out Docker being used for Introduction and Training to Traffic Control
 .left[![Docker CIAB4](images/docker/traffic_control_4.png)]
 
 ---
-
 
 .left-column[
 ### Future Development
@@ -296,6 +310,14 @@ Point out Docker being used for Introduction and Training to Traffic Control
 
 * Pattern Based Consistent Hashing
 
+]
+
+---
+.left-column[
+### Future Development
+]
+.right-column[
+
 * URI Signing (RFC draft)
 
 * Additional caching software support (Nginx and others)
@@ -306,21 +328,24 @@ Point out Docker being used for Introduction and Training to Traffic Control
 
 ---
 .left-column[
-### Thank you
+## Thank you
 ]
 .right-column[
-* Jeff Bevill
-* Brennen Fieck
-* Rob Butts
+## Jeff Bevill
+## Brennen Fieck
+## Rob Butts
 ]
 ---
-###.center[.middle[##Slack Questions?]]
+#.center[.middle[Slack Questions?]]
 ---
-### Traffic Control Resources
+### Resources
 
 * These slides <br/> http://bit.ly/atc-up-and-running
 
 * These slides in pdf <br/>  http://bit.ly/atc-up-and-running-pdf
+
+---
+### Resources
 
 * Traffic Control Website <br/> https://trafficcontrol.apache.org
 

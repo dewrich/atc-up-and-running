@@ -63,22 +63,22 @@ h4 a {
 }
 
 .remark-slide-content h2 {
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 .remark-slide-content h3 {
   color: white;
-  font-size: 1.6em;
+  font-size: 1.8em;
 }
 
 .remark-slide-content h4 {
   color: white;
-  font-size: 1.3em;
+  font-size: 1.5em;
 }
 
 .remark-slide-content p {
   color: white;
-  font-size: 1.0em;
+  font-size: 1.8em;
 }
 
 .remark-slides-area {
@@ -101,15 +101,6 @@ h4 a {
   width: 600px;
   height: 160px;
 }
-
-li p {
-  line-height: 1.50em;
-}
-
-ul li {
-  font-size: 1.2em;
-}
-
 
 .red {
   color: #fa0000;
@@ -235,8 +226,8 @@ code {
 
 .right-column {
   color: white;
+  padding: 10px;
 }
-
 
 .right-column ul li p a {
  color: #F28721;
@@ -264,15 +255,7 @@ code {
   margin: 100px 0 0 0;
 }
 
-.bottom {
-  margin-top: 300px;
-  margin-left: 170px;
-  float: left;
-}
-
-
 .center {
   text-align: center;
-  display: inline-block;
 }
 
