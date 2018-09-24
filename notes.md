@@ -10,13 +10,6 @@
 
 * Summarize verbally at the end
 
-
-* ADMIN_DOWN: Temporary down. Edge: XMPP client will send status OFFLINE to TR, otherwise similar to REPORTED. Mid: Server will not be included in parent.config files for its edge caches
-* CCR_IGNORE: Edge: 12M will not include caches in this state in TR config files. Mid: N\/A for now
-* OFFLINE : Edge: Puts server in TR config file in this state, but TR will never route traffic to it. Mid: Server will not be included in parent.config files for its edge caches
-* ONLINE: Edge: Puts server in TR config file in this state, and TR will always route traffic to it. Mid: Server will be included in parent.config files for its edges
-* REPORTED: Edge: Puts server in TR config file in this state, and TR will adhere to the health protocol. Mid: N\/A for now
-
 Resources: 
 
 Note: a rehearsal usually will run about 20% shorter than a live presentation; adjust your content accordingly.
